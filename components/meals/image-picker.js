@@ -27,37 +27,39 @@ export default function ImagePicker({ label, name }) {
   }
 
   return (
-    <div className={classes.picker}>
-      <label htmlFor={name}>{label}</label>
-      <div className={classes.controls}>
-        <div className={classes.preview}>
-          {!pickedImage && <p>No image picked yet.</p>}
-          {pickedImage && (
-            <Image
-              src={pickedImage}
-              alt="The image selected by the user."
-              fill
-            />
-          )}
+    <>
+      <div className={classes.picker}>
+        <label htmlFor={name}>{label}</label>
+        <div className={classes.controls}>
+          <div className={classes.preview}>
+            {!pickedImage && <p>No image picked yet.</p>}
+            {pickedImage && (
+              <Image
+                src={pickedImage}
+                alt="The image selected by the user."
+                fill
+              />
+            )}
+          </div>
+          <input
+            className={classes.input}
+            type="file"
+            accept="image/png image/jpeg"
+            id={name}
+            name={name}
+            ref={imageRef}
+            onChange={handleImageChange}
+            required
+          />
+          <button
+            className={classes.button}
+            type="button"
+            onClick={handleImagePick}
+          >
+            Pick an Image
+          </button>
         </div>
-        <input
-          className={classes.input}
-          type="file"
-          accept="image/png image/jpeg"
-          id={name}
-          name={name}
-          ref={imageRef}
-          onChange={handleImageChange}
-          required
-        />
-        <button
-          className={classes.button}
-          type="button"
-          onClick={handleImagePick}
-        >
-          Pick an Image
-        </button>
       </div>
-    </div>
+    </>
   )
 }
