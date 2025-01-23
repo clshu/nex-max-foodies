@@ -38,3 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Set Up Sqlite
 $ npm install better-sqlite3
 $ node initdb.js
+
+# slugify and prevent xss
+$ npm install slugify xss
