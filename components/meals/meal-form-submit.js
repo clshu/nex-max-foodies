@@ -1,8 +1,4 @@
-'use client'
-import { useActionState } from 'react'
-
-export default function MealFormSubmit() {
-  const { pending } = useActionState()
+export default function MealFormSubmit({ pending }) {
   return (
     <>
       <button disabled={pending}>
